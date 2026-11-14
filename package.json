@@ -1,0 +1,37 @@
+{
+  "name": "n8n-nodes-settle-teams",
+  "version": "0.1.0",
+  "description": "n8n community node for Settle for Teams: create decision drafts, send them, find decisions and read their results.",
+  "license": "MIT",
+  "homepage": "https://settle.ink/teams",
+  "keywords": [
+    "n8n-community-node-package",
+    "settle",
+    "decisions",
+    "approvals"
+  ],
+  "author": {
+    "name": "Aethon Digital",
+    "email": "help@settle.ink"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node ../../node_modules/typescript/bin/tsc -p tsconfig.build.json && node scripts/copy-icons.mjs",
+    "typecheck": "node ../../node_modules/typescript/bin/tsc -p tsconfig.json --noEmit",
+    "lint": "echo \"(n8n-settle-teams) no lint configured yet\"",
+    "test": "node ../../node_modules/vitest/vitest.mjs run"
+  },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [
+      "dist/src/credentials/SettleTeamsApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/src/nodes/SettleTeams/SettleTeams.node.js"
+    ]
+  }
+}
